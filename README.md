@@ -173,7 +173,7 @@ This project demonstrates how to use **File Transfer Protocol (FTP)** to connect
 
 
 
-## Steps Involved
+### Steps Involved
 
 ### 1. **Connecting to the FTP Server**
 I started by connecting to the FTP server at `10.10.62.72` using the following command in my terminal:

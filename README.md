@@ -164,62 +164,94 @@ By following the steps above, the following result is achieved:
 
 ---
 
-
 PROJECT 3
 # FTP File Download Project - Retrieve Hidden Flag
 
 ## Overview
 This project demonstrates how to use **File Transfer Protocol (FTP)** to connect to a remote server, navigate through directories, download a file, and reveal hidden contents. The task involved downloading a file named `flag.txt` from a server with the IP address `10.10.62.72`, and the hidden content in that file was a flag that I had to find.
 
+<!-- Steps Section -->
 
-
-### Steps Involved
+## Steps Involved
 
 ### 1. **Connecting to the FTP Server**
 I started by connecting to the FTP server at `10.10.62.72` using the following command in my terminal:
 ```bash
 ftp 10.10.62.72
+This initiated a connection to the FTP server. Once the connection was established, the system prompted me for the username.
 
-###2. Logging in Using Anonymous Access
+<!-- This step connects to the FTP server using its IP address. -->
+2. Logging in Using Anonymous Access
 Upon connection, the FTP client prompted me for a username and password. Since this server allows anonymous access, I entered anonymous as the username. The password field was left blank, and I pressed Enter to proceed.
+
+bash
+Copy
 Username: anonymous
 Password: (pressed Enter for no password)
 The server then returned a login successful message, confirming that I had logged in successfully without needing any specific credentials.
 
-###3. Listing Files and Directories
+<!-- This explains the login prompt and how anonymous access works (no password needed). -->
+3. Listing Files and Directories
 After logging in, I typed the ls command to list the files and directories on the server:
+
+bash
+Copy
 ls
 This displayed several files, including tea.txt, file.txt, and flag.txt. The file I was looking for was flag.txt, which contained the hidden flag.
 
-###4. Switching to ASCII Mode
+<!-- `ls` lists the files available in the current directory on the FTP server. I searched for the file that contained the hidden flag. -->
+4. Switching to ASCII Mode
 To ensure the contents of the text file would be displayed correctly, I typed the command:
+
+bash
+Copy
 type ascii
 This switched the FTP client to ASCII mode for proper text file handling. FTP can transfer files in two modes: binary (for non-text files) and ASCII (for text files).
 
-###5. Downloading the File
+<!-- The `type ascii` command ensures that the text file is transferred in ASCII mode, which is important for plain text files to avoid encoding issues. -->
+5. Downloading the File
 Once in ASCII mode, I downloaded the file using the get command:
-get flag.txt
 
+bash
+Copy
+get flag.txt
 The FTP client displayed several messages, and the last message was:
+
+nginx
+Copy
 Transfer complete
 This confirmed that the file was successfully downloaded to my local machine.
 
-###6. Quitting the FTP Session
+<!-- The `get` command downloads the file from the FTP server to your local machine. Once the transfer completes, you can access it locally. -->
+6. Quitting the FTP Session
 To exit the FTP session, I typed:
+
+bash
+Copy
 quit
 This returned me to my home directory on the local machine.
 
-###Viewing the File Contents
+<!-- `quit` ends the FTP session and brings you back to your local shell. -->
+7. Viewing the File Contents
 To verify the contents of the downloaded flag.txt file, I listed the files in my home directory using the ls command:
+
+bash
+Copy
 ls
 I saw that flag.txt was listed among the files. I then displayed the contents of the file using the cat command:
+
+bash
+Copy
 cat flag.txt
 The message displayed in the file was:
-THM{FAST-FTP}
 
-###8. Conclusion
+Copy
+THM{FAST-FTP}
+<!-- `ls` lists files on your local system, and `cat` allows you to display the content of a text file. In this case, `flag.txt` contained the hidden flag message. -->
+8. Conclusion
 The project was successful! I was able to use FTP to connect to the remote server, download a file, and retrieve the hidden flag. This project demonstrates how network protocols like FTP can be used to interact with remote servers and manage files.
 
+<!-- This concludes the project, where the goal of retrieving the hidden flag using FTP has been achieved. -->
 Technologies Used:
 FTP (File Transfer Protocol)
 Linux Command Line (for FTP and file handling)

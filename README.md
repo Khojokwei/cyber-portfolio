@@ -171,7 +171,7 @@ PROJECT 3
 ## Overview
 This project demonstrates how to use **File Transfer Protocol (FTP)** to connect to a remote server, navigate through directories, download a file, and reveal hidden contents. The task involved downloading a file named `flag.txt` from a server with the IP address `10.10.62.72`, and the hidden content in that file was a flag that I had to find.
 
-<!-- Steps Section -->
+
 
 ## Steps Involved
 

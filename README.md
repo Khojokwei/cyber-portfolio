@@ -226,7 +226,8 @@ The project was successful! I was able to use FTP to connect to the remote serve
 This project demonstrates how FTP can be used to download files from a server, as well as how to manipulate and display hidden file contents using Linux commands. The skills learned in this project are valuable for anyone working with remote servers or in a cybersecurity context.
 
 PROJECT 4
-Project Overview
+
+##Project Overview
 In this project, we successfully cracked a SHA-512 Crypt ($6$) hash using Hashcat and a dictionary attack with the rockyou.txt wordlist.
 
 ##Step 1: Identifying the Hash Type

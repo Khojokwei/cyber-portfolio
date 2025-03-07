@@ -227,10 +227,11 @@ This project demonstrates how FTP can be used to download files from a server, a
 
 PROJECT 4
 
-##Project Overview
+#Project Overview
 In this project, we successfully cracked a SHA-512 Crypt ($6$) hash using Hashcat and a dictionary attack with the rockyou.txt wordlist.
+##Step:
 
-##Step 1: Identifying the Hash Type
+## Step 1: Identifying the Hash Type
 We were given the following hash:
 $6$GQXVvW4EuM$ehD6jWiMsfNorxy5SINsgdlxmAEl3.yif0/c3NqzGLa0P.S7KRDYjycw5bnYkF5ZtB8wQy8KnskuWQS3Yr1wQ0
 To determine the hash type, we used Hash Identifier from hashcat.net.
@@ -256,14 +257,14 @@ hashcat → Runs the Hashcat tool
 /usr/share/wordlists/rockyou.txt → Common password wordlist
 --force → Ignores minor errors
 
-##Step 4: Run Hashcat and Crack the Hash
+## Step 4: Run Hashcat and Crack the Hash
 After running the command, Hashcat attempted to match the hash with passwords from rockyou.txt.
 
  After some time, Hashcat successfully found the password:
  spaceman
 
  
-##Step 5: Verify the Cracked Password
+## Step 5: Verify the Cracked Password
 To confirm the cracked password, I ran:
 hashcat -m 1800 --show ~/Hashing-Basics/Task-6/hash3.txt
 $6$GQXVvW4EuM$ehD6jWiMsfNorxy5SINsgdlxmAEl3.yif0/c3NqzGLa0P.S7KRDYjycw5bnYkF5ZtB8wQy8KnskuWQS3Yr1wQ0:spaceman
@@ -271,7 +272,7 @@ Output:
 $6$GQXVvW4EuM$ehD6jWiMsfNorxy5SINsgdlxmAEl3.yif0/c3NqzGLa0P.S7KRDYjycw5bnYkF5ZtB8wQy8KnskuWQS3Yr1wQ0:spaceman
 
 
- Conclusion
+# Conclusion
 By following a structured approach:
 
 1. Identified the hash type

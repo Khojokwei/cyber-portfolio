@@ -225,40 +225,37 @@ The project was successful! I was able to use FTP to connect to the remote serve
 ## Conclusion
 This project demonstrates how FTP can be used to download files from a server, as well as how to manipulate and display hidden file contents using Linux commands. The skills learned in this project are valuable for anyone working with remote servers or in a cybersecurity context.
 
-#PROJECT 4
-# 🔐 Cracking SHA-512 Crypt Hash with Hashcat
+PROJECT 4
+#!/bin/bash
 
-This project demonstrates how to identify and crack a SHA-512 Crypt ($6$) hash using Hashcat and the rockyou.txt wordlist.
+################################################################################
+# PROJECT: Hash Cracking with Hashcat
+# PURPOSE: This script automates the process of identifying and cracking a SHA-512
+#          Crypt hash ($6$) using Hashcat and the rockyou.txt wordlist.
+#
+# KEYWORDS: Hashing, Hashcat, Cryptography, SHA-512 Crypt, Password Cracking,
+#           Cybersecurity, Dictionary Attack, RockYou Wordlist, Ethical Hacking.
+#
+# TERMINOLOGIES:
+# - Hash: A fixed-length representation of data, used for security (e.g., passwords).
+# - Hashcat: A powerful password recovery tool that cracks hashes using different attacks.
+# - SHA-512 Crypt: A secure hashing algorithm commonly used for password storage.
+# - Dictionary Attack: An attack method where a wordlist (e.g., rockyou.txt) is used to find
+#   the correct password by comparing each word against the hash.
+# - RockYou.txt: A popular password list used in cybersecurity research and penetration testing.
+################################################################################
 
-We started by identifying the hash type. The given hash was:
+# Create the directory for storing the hash file
+mkdir -p ~/Hashing-Basics/Task-6
 
-$6$GQXVvW4EuM$ehD6jWiMsfNorxy5SINsgdlxmAEl3.yif0/c3NqzGLa0P.S7KRDYjycw5bnYkF5ZtB8wQy8KnskuWQS3Yr1wQ0
+# Save the hash into a file
+echo "$6$GQXVvW4EuM$ehD6jWiMsfNorxy5SINsgdlxmAEl3.yif0/c3NqzGLa0P.S7KRDYjycw5bnYkF5ZtB8wQy8KnskuWQS3Yr1wQ0" > ~/Hashing-Basics/Task-6/hash3.txt
 
-
-
-To determine the hash type, we used [Hash Identifier](https://hashcat.net/wiki/doku.php?id=example_hashes) and confirmed it was SHA-512 Crypt. Next, we needed to find the correct Hashcat mode, so we searched the [Hashcat Wiki](https://hashcat.net/wiki/) using `Ctrl + F` and found that SHA-512 Crypt uses **mode 1800**.
-
-With the hash type identified, we saved the hash into a file using:
-
-```
-nano ~/Hashing-Basics/Task-6/hash3.txt
-We then pasted the hash inside and saved the file.
-
-Next, we used Hashcat to attempt to crack the hash with a dictionary attack using the rockyou.txt wordlist. The command used was:
-
-
+# Run Hashcat to crack the password using SHA-512 Crypt mode (1800) and the rockyou.txt wordlist
 hashcat -m 1800 -a 0 ~/Hashing-Basics/Task-6/hash3.txt /usr/share/wordlists/rockyou.txt --force
--m 1800 specifies the hash type (SHA-512 Crypt).
--a 0 selects a dictionary attack.
-hash3.txt is the file containing the hash.
-rockyou.txt is the wordlist used to find the password.
---force overrides any warnings.
-After Hashcat finished running, we checked the cracked password using:
 
-
+# Show the cracked password
 hashcat -m 1800 --show ~/Hashing-Basics/Task-6/hash3.txt
-The result was:
 
 
-$6$GQXVvW4EuM$ehD6jWiMsfNorxy5SINsgdlxmAEl3.yif0/c3NqzGLa0P.S7KRDYjycw5bnYkF5ZtB8wQy8KnskuWQS3Yr1wQ0:spaceman
-This revealed that the cracked password was "spaceman".
+
